@@ -1,0 +1,64 @@
+﻿@model PhofuLocks.Models.CarsClass
+
+@{
+    ViewData["Title"] = "Place Order";
+   
+}
+
+<h1> select your lock type below</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Transmission" class="control-label"></label>
+                <select id="select1" asp-for="Transmission">
+                    <option selected disabled>--Select Car Transmission--</option>
+                    <option>Manual</option>
+                    <option>Automatic</option>
+                </select>
+                <span asp-validation-for="Transmission" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CarModel" class="control-label"></label>
+                <select id="select1" asp-for="CarModel">
+                    <option selected disabled>--Select Car Model--</option>
+                    <option>Toyota</option>
+                    <option>Audi</option>
+                    <option>Nissan</option>
+                    <option s>Hyundai</option>
+                </select>
+                <span asp-validation-for="CarModel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CarMake" class="control-label"></label>
+                <select id="select1" asp-for="CarMake">
+                    <option selected disabled>--Select Car Make--</option>
+                    <option>Hilux</option>
+                    <option>A4</option>
+                    <option>NP200</option>
+                    <option>Accent</option>
+                </select>
+                <span asp-validation-for="CarMake" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label"></label>
+                <input asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+
+            <h4> @ViewBag.message</h4>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
